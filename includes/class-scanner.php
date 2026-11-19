@@ -192,7 +192,8 @@ class Scanner {
 			$transaction_id = trim( (string) $order->get_transaction_id() );
 
 			if ( '' !== $transaction_id ) {
-				$fingerprint = Audit_Log::fingerprint( $transaction_id );
+				$gateway_id  = (string) $order->get_payment_method();
+				$fingerprint = Audit_Log::fingerprint( $gateway_id . '|' . $transaction_id );
 				if ( ! isset( $transaction_ids[ $fingerprint ] ) ) {
 					$transaction_ids[ $fingerprint ] = array();
 				}
