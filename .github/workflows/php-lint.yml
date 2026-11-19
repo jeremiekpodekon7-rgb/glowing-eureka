@@ -1,0 +1,28 @@
+name: PHP syntax
+
+on:
+  push:
+    branches:
+      - main
+      - integrity-core-agent-readiness-mvp
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  php-lint:
+    name: PHP ${{ matrix.php }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.2', '8.3', '8.4']
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+      - name: Lint plugin source
+        run: php -l integrity-core-agent-readiness/integrity-core-agent-readiness.php
