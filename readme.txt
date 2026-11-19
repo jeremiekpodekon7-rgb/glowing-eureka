@@ -8,7 +8,7 @@ Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Read-only assurance for WooCommerce operations performed through WordPress Abilities API, with a privacy-conscious activity log and integrity checks.
+Read-only assurance for WooCommerce operations performed through the WordPress Abilities API, with a privacy-conscious activity log and integrity checks.
 
 == Description ==
 
@@ -20,14 +20,14 @@ Version 0.1.0 provides:
 * Inspection of externally exposed abilities and their read-only/destructive annotations.
 * A warning when application passwords are associated with administrator accounts.
 * A limited scan of the 200 most recent orders for duplicate transaction identifiers, refund totals above order totals, and changes against payment snapshots captured after activation.
-* A minimal event log for WooCommerce order status changes, refunds, product updates, payment snapshots and executed WooCommerce/public Abilities.
+* A minimal event log for WooCommerce order status changes, refunds, product updates, payment snapshots, permission-passed ability starts and successfully completed WooCommerce/public Abilities.
 * Automatic removal of log records older than 90 days.
 
 The plugin does not store raw ability inputs or outputs, customer names, email addresses, payment credentials or full transaction IDs. Transaction IDs used for comparison are stored only as an HMAC fingerprint.
 
 == Important limitations ==
 
-This is an early MVP. It does not block agents, approve refunds, verify external payment-provider records, guarantee that every third-party plugin operation is observed, or prove that a transaction is valid outside the data available to WooCommerce. An empty scan means only that the selected checks did not detect a problem.
+This is an early MVP. The WordPress Abilities API after-hook records successful executions only; a start event without a completion event can be a diagnostic clue, but is not a conclusive failure correlation. The plugin does not block agents, approve refunds, verify external payment-provider records, guarantee that every third-party plugin operation is observed, or prove that a transaction is valid outside the data available to WooCommerce. An empty scan means only that the selected checks did not detect a problem.
 
 == Installation ==
 
