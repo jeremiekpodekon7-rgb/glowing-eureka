@@ -4,6 +4,7 @@
 - [x] PHP syntax check (php -l) on PHP 8.4.24.
 - [x] Local smoke test with WordPress/WooCommerce stubs: 12 checks executed; 12 pass.
 - [x] ZIP archive integrity check (unzip -t).
+- [x] GitHub Actions PHP lint matrix passed on PHP 8.2, 8.3, and 8.4.
 
 ## Required before public beta
 - [ ] Install on a clean WordPress + WooCommerce test instance.
